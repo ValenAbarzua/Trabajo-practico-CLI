@@ -1,0 +1,19 @@
+{
+  "name": "trabajo-practico-cli",
+  "version": "1.0.0",
+  "description": "Aplicación de línea de comandos (CLI) en Node.js que permita gestionar usuarios (crear, listar, actualizar y eliminar) utilizando una base de datos relacional (MySQL).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "keywords": [
+    "node",
+    "cli"
+  ],
+  "author": "Abarzua Valentina",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "mysql2": "^3.22.2"
+  }
+}
