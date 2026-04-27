@@ -4,7 +4,7 @@
   "description": "Aplicación de línea de comandos (CLI) en Node.js que permita gestionar usuarios (crear, listar, actualizar y eliminar) utilizando una base de datos relacional (MySQL).",
   "main": "index.js",
   "scripts": {
-    "dev": "node app.js"
+    "dev": "node index.js"
   },
   "keywords": [
     "node",
