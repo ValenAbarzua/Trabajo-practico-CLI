@@ -13,9 +13,17 @@ const getUsers = () => {
 }
 
 
-//Crear usuarios - node index.js add <username> <email> <password>
-const addUsers = () => {
-    db.query("CREATE TABLE")
+//Crear usuarios - node index.js add <id> <username> <email> <password>
+const addUsers = (id, username, email, password) => {
+    const q= 'INSERT INTO users (id, username, email, password) VALUES (?, ?, ?, ?)';
+    db.query(q, [id, username, email, password], (err, results) => {
+        if(err) {
+            console.log("Error al crear el usuario: ", err)
+        } else {
+            console.log("Usuario creado con exito!: ", results)
+        }
+ 
+    })
 }
 
 
@@ -23,4 +31,4 @@ const addUsers = () => {
 
 // Eliminar usuarios - node index.js delete <id>
 
-export {getUsers}
+export {getUsers, addUsers}
