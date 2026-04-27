@@ -32,11 +32,29 @@ const addUsers = (username, email, password) => {
 
 }
     
-
-
 //Actualizar usuarios - node index.js update <username> <email> <password> <id>
+const updateUsers = (username, email, password, id) => {
+    if(!username || !email || !password || !id) {
+        console.log("Faltan datos para poder actualizar el usuario! Debes enviar el username, email, password y el ID")
+    }
+    else{
+        const q= 'UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?';
+    db.query(q, [username, email, password, id], (err, results) => {
+        if(err) {
+            console.log("Error al actualizar el usuario: ", err)
+        } else {
+            if(results.affectedRows === 0) {
+                console.log("No se encontró un usuario con ese ID para actualizar")
+            }else{
+                console.log("Usuario actualizado con exito!: ", results)
+            }
+        }
+        });
 
+    }
+}
 
 // Eliminar usuarios - node index.js delete <id>
 
-export {getUsers, addUsers}
+
+export {getUsers, addUsers, updateUsers}
