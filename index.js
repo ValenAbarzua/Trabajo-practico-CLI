@@ -1,4 +1,4 @@
-import { getUsers, addUsers, updateUsers} from "./controllers.js"
+import { getUsers, addUsers, updateUsers, deleteUsers} from "./controllers.js"
 const args = process.argv 
 const params = args.slice(2)
 const operacion = params[0]
@@ -22,6 +22,10 @@ else{
             const id = params[4]
             updateUsers(username, email, password, id)
             break
+        case "delete":
+            const idDelete = params[1]
+            deleteUsers(idDelete)
+            break 
     }
 }   
 

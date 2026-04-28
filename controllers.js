@@ -55,6 +55,24 @@ const updateUsers = (username, email, password, id) => {
 }
 
 // Eliminar usuarios - node index.js delete <id>
+const deleteUsers = (idDelete) => {
+    if(!idDelete) {
+        console.log ("Debes ingresar el ID para eliminar un usuario!")
+    }else{
+        const q = 'DELETE FROM users WHERE id = ?';
+        db.query(q, [idDelete], (err,results) =>{
+            if (err) {
+                console.log("Error al eliminar el usuario: ", err)
+            }else{
+                if(results.affectedRows === 0) {
+                    console.log("No se encontró un usuario con ese ID para eliminar")
+                }else{
+                    console.log("Usuario eliminado con exito!: ", results)
+                }
+            }
+        })
+    }
+}
 
 
-export {getUsers, addUsers, updateUsers}
+export {getUsers, addUsers, updateUsers, deleteUsers}
