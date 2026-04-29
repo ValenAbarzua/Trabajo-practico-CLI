@@ -8,7 +8,17 @@ const password= params[3]
 const operacionesValidas = ["get", "add", "update", "delete"]
 
 if(!operacionesValidas.includes(operacion)) {
-    console.log("No es valida tu peticion! Prueba con get, add, update o delete")
+    console.log(`
+        No se pudo realizar la peticion!
+        ----------------------
+        Operaciones permitidas:
+        - get
+        - add
+        - update
+        - delete
+        -----------------------
+        Intentalo nuevamente!
+    `);
 } 
 else{
     switch(operacion) {
